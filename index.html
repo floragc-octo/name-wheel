@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>La roue</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>A qui le tour ! </h1>
+    <main>
+      <article id="wheel-board">
+        <div id="choice-list"></div>
+        
+      </article>
+      <article class="wheel-options">
+        <form id="choice-selection">
+          <label for="choice">
+              <p>Entrer les valeurs séparées par ";"</p>
+             <textarea id="choices" name="choice" rows="3" cols="55"></textarea> 
+            </label>
+          <input type="submit" value="Enregistrer" class="btn"/>
+        </form>
+      </article>
+    </main>
+  </body>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+  <script>
+    let params = new URLSearchParams(document.location.search);
+    let choices = params.get(QUERY_PARAM_CHOICE);
+    if (choices) {
+        displayChoices(choices)
+        document.querySelector(SELECTOR_CHOICES_INPUT).value = choices
+    }
+
+    document.querySelector(SELECTOR_CHOICES_FORM).addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const choices = document.querySelector(SELECTOR_CHOICES_INPUT).value
+    
+      const url = new URL(window.location.href);
+      url.searchParams.set(QUERY_PARAM_CHOICE, choices);
+      window.location.replace(url.toString());
+    });
+
+    document.querySelector(SELECTOR_CHOICE_MAKER).addEventListener("click", chooseWinner);
+  </script>
+</html>

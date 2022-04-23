@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
+:root {
+    --background-color: #191F2A;
+    --text-color: #FFF;
+    --primary-color: #d53a9d;
+    --secondary-color: #743ad5;
+    --secondary-color__opacified: #743ad570;
+    --highlight-gradient-bg-img: linear-gradient(to left, var(--secondary-color), var(--primary-color));
+}
+
+html { 
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+}
+
+@media (max-width: 1000px) {
+    html { 
+        font-size: 24px;
+    }  
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-align: center;
+    margin: 0;
+}
+
+h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+
+    display: inline-block;
+    padding: .8rem;
+
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-color: var(--secondary-color);
+    background-image: var(--highlight-gradient-bg-img);
+
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: var(--highlight-gradient-bg-img);
+}
+
+main {
+    max-width: 800px;
+    margin: auto;
+}
+
+.btn {
+    padding: .5rem 1rem;
+    margin-top: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    border-radius: 4px;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.btn:hover,
+.btn:focus {
+    cursor: pointer;
+    border: 1px solid var(--background-color);
+    color: var(--background-color);
+    background-color: var(--text-color);
+}
+
+#choice-selection > * {
+    display: block;
+    margin: auto;
+}
+
+#wheel-board {
+    border-bottom: 1px solid var(--text-color);
+    padding-bottom: 1rem;
+}
+
+#choice-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    align-content: stretch;
+}
+
+.choice-list_element {
+    align-self: center;
+    background-color: var(--secondary-color);
+    font-size: 2.2rem;
+    padding: .4rem .6rem;
+    flex: 1 1 auto;
+}
+
+.choosen {
+    background-color: var(--primary-color);
+    transition: ease-in 1s;
+}
+.not-choosen {
+    background-color: var(--secondary-color__opacified);
+    transition: ease-in 1s;
+}
+
